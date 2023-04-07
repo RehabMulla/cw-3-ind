@@ -65,9 +65,9 @@ export default {
     }
   },
   methods: {
-    showHome() {
-      this.showItem = this.showItem ? false : true;
-    },
+    // showHome() {
+    //   this.showItem = this.showItem ? false : true;
+    // },
     submitForm() {
       alert('Order submitted!');
       location.reload();

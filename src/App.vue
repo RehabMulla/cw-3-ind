@@ -5,9 +5,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <!-- CDN link -->
-      <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"> </script>
-      <!-- JSON lesson file link -->
-      <script src="items.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"> </script>  
       <!-- style sheel CSS link -->
       <link rel="stylesheet" href="style.css">
       <!-- Font awesome link -->
@@ -69,13 +67,13 @@
 </template>
 
 <script>
-import lessons from './components/Lessons.vue'
-import checkout from './components/Checkout.vue'
+import lessonsList from './components/LessonsList.vue'
+import checkoutItems from './components/CheckoutItems.vue'
 
 export default {
   name: 'App',
   components: {
-   lessons, checkout
+   lessonsList, checkoutItems
   },
   data () {
     return {
@@ -88,11 +86,12 @@ export default {
   },
   created: function(){
 
-      fetch('http://localhost:3000/collection/items').then( response => {
+     fetch('http://localhost:3000/collection/items').then( response => {
         response.json().then(json => {
-            this.lessons = json;
+            this.items = json;
             console.log(json);
         } ); });
+  
   },
   methods: {
    addToCart: function (item) {

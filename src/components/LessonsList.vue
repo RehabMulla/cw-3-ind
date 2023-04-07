@@ -378,12 +378,12 @@ sortMethod: '',
             console.log("added item", item.id)
             this.$emit('addItem', item)
         },
-                //to show checkout page
-                showCheckout() {
-                    this.showItem = this.showItem ? false : true;
-                    this.sortMethod = this.sortMethod ? false : true;
+                // //to show checkout page
+                // showCheckout() {
+                //     this.showItem = this.showItem ? false : true;
+                //     this.sortMethod = this.sortMethod ? false : true;
 
-                },
+                // },
                  //add to cart for lesson if space is available only (that is 5 in this case)
                 canAddToCart: function (item) {
                     return item.availableInventory > this.cartCount(item.id);
