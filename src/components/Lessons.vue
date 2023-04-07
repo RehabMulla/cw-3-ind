@@ -374,11 +374,10 @@ sortMethod: '',
   },
   methods: {
     //adding item to cart
-                addToCart: function (item) {
-                    this.cart.push(item);
-                    item.availableInventory--;
-                    console.log(this.cart)
-                },
+                 addToCart(item) {
+            console.log("added item", item.id)
+            this.$emit('addItem', item)
+        },
                 //to show checkout page
                 showCheckout() {
                     this.showItem = this.showItem ? false : true;
@@ -389,24 +388,10 @@ sortMethod: '',
                 canAddToCart: function (item) {
                     return item.availableInventory > this.cartCount(item.id);
                 },
-                //cart lenth 
-                cartCount(id) {
-                    let count = 0;
-                    for (let i = 0; i > this.cart.length; i++) {
-                        if (this.cart[i] === id) {
-                            count++
-                        }
-                    }
-                    return count;
-                },
   },
 
   //computed property
             computed: {
-                //to check cart length
-                cartItemCount: function () {
-                    return this.cart.length || '';
-                },
                 //sort products from ascending price order
                 sortedProducts() {
                     let productsArray = this.items.slice(0);
