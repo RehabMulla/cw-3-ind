@@ -88,7 +88,7 @@ export default {
   },
   created: function(){
 
-      fetch('http://localhost:3000/collection/lessons').then( response => {
+      fetch('http://localhost:3000/collection/items').then( response => {
         response.json().then(json => {
             this.lessons = json;
             console.log(json);
