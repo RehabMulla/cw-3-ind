@@ -1,6 +1,7 @@
 <template>
   <div>
     <link rel="stylesheet" href="style.css">
+     <!-- cart button  -->                    
     <h2>Lessons Being Purchased:</h2>
     <div v-for="item in cart" :key="item.id">
       <div id="lessonbox">
@@ -11,9 +12,9 @@
         <p>Location: {{item.location}}</p>
         <p>Price: {{item.price}}</p>
         <p>Available Lessons: {{item.availableInventory}}</p>
-        <span v-if='item.availableInventory === cartCount(item.id)'>All out!</span>
+        <!-- <span v-if='item.availableInventory === cartCount(item.id)'>All out!</span>
         <span v-else-if="item.availableInventory - cartCount(item.id) < 5"> Only {{item.availableInventory - cartCount(item.id)}} left!</span>
-        <span v-else>Buy now!</span>
+        <span v-else>Buy now!</span> -->
         <div>
           <!-- <span v-for='n in item.rating'><i class="fa-solid fa-star"></i></span>
           <span v-for='n in 5-item.rating'><i class="fa-regular fa-star"></i></span> -->
@@ -54,7 +55,7 @@
         // Created RegEx for the phone number to start with '971' and have 9 other digits
         var numCriteriaRegExp = new RegExp("^971[0-9]{9,9}$");
 export default {
-  name: "Checkout",
+  name: "CheckoutItems",
   props: ['cart'],
    data() {
     return {
@@ -65,21 +66,13 @@ export default {
     }
   },
   methods: {
-    // showHome() {
-    //   this.showItem = this.showItem ? false : true;
-    // },
     submitForm() {
       alert('Order submitted!');
       location.reload();
     },
     removeItem(item) {
-      const index = this.cart.indexOf(item);
-      if (index > -1) {
-        this.cart.splice(item, 1);
-      }
-      item.availableInventory++;
-    }
-  },
+            this.$emit('removeItem', item)
+        },
 
   computed: {
   
@@ -91,5 +84,5 @@ export default {
             }
      
 }
+}
 </script>
-

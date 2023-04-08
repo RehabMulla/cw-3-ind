@@ -1,41 +1,16 @@
 <template>
-     <!-- display search bar and sort radio btns only if lessons are displayed on screen  -->
-     <div>
-         <link rel="stylesheet" href="style.css">
-                <div id="searchBar" v-if="showItem">
+    <div>
+        <br>
+        <div id="searchBar" v-if="showItem">
                     <p>
                         Search:
                         <input type="text" class="findLesson" v-model="checkLesson" />
                     </p>
                 </div>
-
-                <!-- cart button  -->
-                <!-- button will work if atleast 1 item is added to cart and all lessons are displayed while shopping -->
-                <button v-on:click="showCheckout" class="button" id="shopbtn" v-if="cartItemCount > 0 && showItem">
-                    <!-- 'cartItemCount' is used the same way as a data property. -->
-                    {{ cartItemCount }}
-                    <!-- add the cart icon -->
-                    <span class="fas fa-cart-plus"></span> Cart
-                </button>
-                <button v-on:click="showCheckout" class="button" id="shopbtn" v-else disabled>
-                    {{ cartItemCount }}
-                    <!-- add the cart icon -->
-                    <span class="fas fa-cart-plus"></span> Cart
-                </button>
-
-                <!-- home page button -->
-                <!-- button will work only when user is in checkout page to go back to cart page  -->
-                <button v-on:click="showHome" class="button" id="homebtn" v-if="showItem" disabled>
-                    Return to Home
-                </button>
-                <button v-on:click="showHome" class="button" id="homebtn" v-else>
-                    Return to Home
-                </button>
-           
-
-
-            <br>
-            <!-- creating radio buttons to sort lessons -->
+                <br>
+         <!-- style sheel CSS link -->
+      <link rel="stylesheet" href="style.css">
+         <!-- creating radio buttons to sort lessons -->
             <div class="sortLessons" v-if="showItem">
                 <h3>Sort Lessons:</h3>
                 <!-- sorting lessons based on low to high price -->
@@ -75,7 +50,8 @@
                     <label for="highToLowPrice">AvailableInventory: High to Low</label>
                 </p>
             </div>
-
+ <!-- display search bar and sort radio btns only if lessons are displayed on screen  -->
+                
             <!-- searching lesson in search bar -->
             <div v-if="checkLesson !== ''">
                 <div v-for="item in searchFiltering" :key="item.id">
@@ -92,13 +68,13 @@
                             Add to Cart
                         </button>
                         <br>
-                        <span v-if='item.availableInventory === cartCount(item.id)'>All out!</span>
-                        <span v-else-if="item.availableInventory - cartCount(item.id) < 5"> Only
-                            {{item.availableInventory - cartCount(item.id)}} left!</span>
-                        <span v-else>Buy now!</span>
+                        <!-- <span v-if='item.availableInventory === cartCount(item.id)'>All out!</span> -->
+                        <!-- <span v-else-if="item.availableInventory - cartCount(item.id) < 5"> Only -->
+                            <!-- {{item.availableInventory - cartCount(item.id)}} left!</span> -->
+                        <!-- <span v-else>Buy now!</span> -->
                         <div>
-                           <span v-for='(n, index) in item.rating' :key="index"><i class="fa-solid fa-star"></i></span>
-                            <span v-for='(n, index) in 5-item.rating' :key="index"><i class="fa-regular fa-star"></i></span>
+                            <!-- <span v-for='n in item.rating'><i class="fa-solid fa-star"></i></span>
+                            <span v-for='n in 5-item.rating'><i class="fa-regular fa-star"></i></span> -->
                         </div>
                     </div>
                 </div>
@@ -120,13 +96,13 @@
                             Add to Cart
                         </button>
                         <br>
-                        <span v-if='item.availableInventory === cartCount(item.id)'>All out!</span>
+                        <!-- <span v-if='item.availableInventory === cartCount(item.id)'>All out!</span>
                         <span v-else-if="item.availableInventory - cartCount(item.id) < 5"> Only
                             {{item.availableInventory - cartCount(item.id)}} left!</span>
-                        <span v-else>Buy now!</span>
+                        <span v-else>Buy now!</span> -->
                         <div>
-                           <span v-for='(n, index) in item.rating' :key="index"><i class="fa-solid fa-star"></i></span>
-                            <span v-for='(n, index) in 5-item.rating' :key="index"><i class="fa-regular fa-star"></i></span>
+                            <!-- <span v-for='n in item.rating'><i class="fa-solid fa-star"></i></span>
+                            <span v-for='n in 5-item.rating'><i class="fa-regular fa-star"></i></span> -->
                         </div>
                     </div>
                 </div>
@@ -148,13 +124,13 @@
                             Add to Cart
                         </button>
                         <br>
-                        <span v-if='item.availableInventory === cartCount(item.id)'>All out!</span>
+                        <!-- <span v-if='item.availableInventory === cartCount(item.id)'>All out!</span>
                         <span v-else-if="item.availableInventory - cartCount(item.id) < 5"> Only
                             {{item.availableInventory - cartCount(item.id)}} left!</span>
-                        <span v-else>Buy now!</span>
+                        <span v-else>Buy now!</span> -->
                         <div>
-                            <span v-for='(n, index) in item.rating' :key="index"><i class="fa-solid fa-star"></i></span>
-                            <span v-for='(n, index) in 5-item.rating' :key="index"><i class="fa-regular fa-star"></i></span>
+                            <!-- <span v-for='n in item.rating'><i class="fa-solid fa-star"></i></span>
+                            <span v-for='n in 5-item.rating'><i class="fa-regular fa-star"></i></span> -->
                         </div>
                     </div>
                 </div>
@@ -176,13 +152,13 @@
                             Add to Cart
                         </button>
                         <br>
-                        <span v-if='item.availableInventory === cartCount(item.id)'>All out!</span>
+                        <!-- <span v-if='item.availableInventory === cartCount(item.id)'>All out!</span>
                         <span v-else-if="item.availableInventory - cartCount(item.id) < 5"> Only
                             {{item.availableInventory - cartCount(item.id)}} left!</span>
-                        <span v-else>Buy now!</span>
+                        <span v-else>Buy now!</span> -->
                         <div>
-                           <span v-for='(n, index) in item.rating' :key="index"><i class="fa-solid fa-star"></i></span>
-                            <span v-for='(n, index) in 5-item.rating' :key="index"><i class="fa-regular fa-star"></i></span>
+                            <!-- <span v-for='n in item.rating'><i class="fa-solid fa-star"></i></span>
+                            <span v-for='n in 5-item.rating'><i class="fa-regular fa-star"></i></span> -->
                         </div>
                     </div>
                 </div>
@@ -204,13 +180,13 @@
                             Add to Cart
                         </button>
                         <br>
-                        <span v-if='item.availableInventory === cartCount(item.id)'>All out!</span>
+                        <!-- <span v-if='item.availableInventory === cartCount(item.id)'>All out!</span>
                         <span v-else-if="item.availableInventory - cartCount(item.id) < 5"> Only
                             {{item.availableInventory - cartCount(item.id)}} left!</span>
-                        <span v-else>Buy now!</span>
+                        <span v-else>Buy now!</span> -->
                         <div>
-                           <span v-for='(n, index) in item.rating' :key="index"><i class="fa-solid fa-star"></i></span>
-                            <span v-for='(n, index) in 5-item.rating' :key="index"><i class="fa-regular fa-star"></i></span>
+                            <!-- <span v-for='n in item.rating'><i class="fa-solid fa-star"></i></span>
+                            <span v-for='n in 5-item.rating'><i class="fa-regular fa-star"></i></span> -->
                         </div>
                     </div>
                 </div>
@@ -231,13 +207,13 @@
                             Add to Cart
                         </button>
                         <br>
-                        <span v-if='item.availableInventory === cartCount(item.id)'>All out!</span>
+                        <!-- <span v-if='item.availableInventory === cartCount(item.id)'>All out!</span>
                         <span v-else-if="item.availableInventory - cartCount(item.id) < 5"> Only
                             {{item.availableInventory - cartCount(item.id)}} left!</span>
-                        <span v-else>Buy now!</span>
+                        <span v-else>Buy now!</span> -->
                         <div>
-                           <span v-for='(n, index) in item.rating' :key="index"><i class="fa-solid fa-star"></i></span>
-                            <span v-for='(n, index) in 5-item.rating' :key="index"><i class="fa-regular fa-star"></i></span>
+                            <!-- <span v-for='n in item.rating'><i class="fa-solid fa-star"></i></span>
+                            <span v-for='n in 5-item.rating'><i class="fa-regular fa-star"></i></span> -->
                         </div>
                     </div>
                 </div>
@@ -258,14 +234,13 @@
                             Add to Cart
                         </button>
                         <br>
-                        <span v-if='item.availableInventory === cartCount(item.id)'>All out!</span>
+                        <!-- <span v-if='item.availableInventory === cartCount(item.id)'>All out!</span>
                         <span v-else-if="item.availableInventory - cartCount(item.id) < 5"> Only
                             {{item.availableInventory - cartCount(item.id)}} left!</span>
-                        <span v-else>Buy now!</span>
+                        <span v-else>Buy now!</span> -->
                         <div>
-                            <span v-for='(n, index) in item.rating' :key="index"><i class="fa-solid fa-star"></i></span>
-                            <span v-for='(n, index) in 5-item.rating' :key="index"><i class="fa-regular fa-star"></i></span>
-
+                            <!-- <span v-for='n in item.rating'><i class="fa-solid fa-star"></i></span>
+                            <span v-for='n in 5-item.rating'><i class="fa-regular fa-star"></i></span> -->
                         </div>
                     </div>
                 </div>
@@ -286,14 +261,13 @@
                             Add to Cart
                         </button>
                         <br>
-                        <span v-if='item.availableInventory === cartCount(item.id)'>All out!</span>
+                        <!-- <span v-if='item.availableInventory === cartCount(item.id)'>All out!</span>
                         <span v-else-if="item.availableInventory - cartCount(item.id) < 5"> Only
                             {{item.availableInventory - cartCount(item.id)}} left!</span>
-                        <span v-else>Buy now!</span>
+                        <span v-else>Buy now!</span> -->
                         <div>
-                           <span v-for='(n, index) in item.rating' :key="index"><i class="fa-solid fa-star"></i></span>
-                           <span v-for='(n, index) in 5-item.rating' :key="index"><i class="fa-regular fa-star"></i></span>
-
+                            <!-- <span v-for='n in item.rating'><i class="fa-solid fa-star"></i></span>
+                            <span v-for='n in 5-item.rating'><i class="fa-regular fa-star"></i></span> -->
                         </div>
                     </div>
                 </div>
@@ -314,14 +288,13 @@
                             Add to Cart
                         </button>
                         <br>
-                        <span v-if='item.availableInventory === cartCount(item.id)'>All out!</span>
+                        <!-- <span v-if='item.availableInventory === cartCount(item.id)'>All out!</span>
                         <span v-else-if="item.availableInventory - cartCount(item.id) < 5"> Only
                             {{item.availableInventory - cartCount(item.id)}} left!</span>
-                        <span v-else>Buy now!</span>
+                        <span v-else>Buy now!</span> -->
                         <div>
-                            <span v-for='(n, index) in item.rating' :key="index"><i class="fa-solid fa-star"></i></span>
-                            <span v-for='(n, index) in 5-item.rating' :key="index"><i class="fa-regular fa-star"></i></span>
-
+                            <!-- <span v-for='n in item.rating'><i class="fa-solid fa-star"></i></span>
+                            <span v-for='n in 5-item.rating'><i class="fa-regular fa-star"></i></span> -->
                         </div>
                     </div>
                 </div>
@@ -344,63 +317,63 @@
                             Add to Cart
                         </button>
                         <br>
-                        <span v-if='item.availableInventory === cartCount(item.id)'>All out!</span>
+                        <!-- <span v-if='item.availableInventory === cartCount(item.id)'>All out!</span>
                         <span v-else-if="item.availableInventory - cartCount(item.id) < 5"> Only
                             {{item.availableInventory - cartCount(item.id)}} left!</span>
-                        <span v-else>Buy now!</span>
+                        <span v-else>Buy now!</span> -->
                         <div>
-                            <span v-for='(n, index) in item.rating' :key="index"><i class="fa-solid fa-star"></i></span>
-                            <span v-for='(n, index) in 5-item.rating' :key="index"><i class="fa-regular fa-star"></i></span>
-
+                            <!-- <span v-for='n in item.rating'><i class="fa-solid fa-star"></i></span>
+                            <span v-for='n in 5-item.rating'><i class="fa-regular fa-star"></i></span> -->
                         </div>
                     </div>
                 </div>
             </div>
-</div>
+
+    </div>
 
 </template>
 
 <script>
 export default {
-  name: "Lessons",
-  props: ['items'],
-  data() {
-    return {
-      
-checkLesson: '',
-sortMethod: '',         
-      
-    }
-  },
-  methods: {
-    //adding item to cart
-                 addToCart(item) {
+    name: "LessonsList",
+    props:['items'],
+    data () {
+      return {
+        checkLesson: '',
+        sortMethod: '',
+        showItem: true
+      }
+    },
+    methods: {
+        addToCart(item) {
             console.log("added item", item.id)
             this.$emit('addItem', item)
         },
-                // //to show checkout page
-                // showCheckout() {
-                //     this.showItem = this.showItem ? false : true;
-                //     this.sortMethod = this.sortMethod ? false : true;
-
-                // },
-                 //add to cart for lesson if space is available only (that is 5 in this case)
-                canAddToCart: function (item) {
-                    return item.availableInventory > this.cartCount(item.id);
+        canAddToCart: function (item) {
+                    return item.availableInventory >0;
                 },
-  },
-
-  //computed property
-            computed: {
-                //sort products from ascending price order
-                sortedProducts() {
+        // check number of items in cart
+        cartCount(id) {
+      let count = 0;
+      for (let i = 0; i < this.cart.length; i++) {
+        if (this.cart[i] === id) {
+          count++
+        }
+      }
+      return count;
+    },   
+        
+    },
+    computed:  {
+       //sort products from ascending price order
+       sortedProducts() {
                     let productsArray = this.items.slice(0);
                     function compare(a, b) {
                         if (a.price > b.price)
                             return 1;
                         if (a.price < b.price) {
                             return -1;
-                            return 0;
+                            // return 0;
                         }
                     }
                     return productsArray.sort(compare);
@@ -413,7 +386,7 @@ sortMethod: '',
                             return 1;
                         if (a.price > b.price) {
                             return -1;
-                            return 0;
+                            // return 0;
                         }
                     }
                     return productsArray.sort(compare);
@@ -426,7 +399,7 @@ sortMethod: '',
                             return 1;
                         if (a.subject < b.subject) {
                             return -1;
-                            return 0;
+                            // return 0;
                         }
                     }
                     return productsArray.sort(compare);
@@ -439,7 +412,7 @@ sortMethod: '',
                             return 1;
                         if (a.subject > b.subject) {
                             return -1;
-                            return 0;
+                            // return 0;
                         }
                     }
                     return productsArray.sort(compare);
@@ -451,7 +424,7 @@ sortMethod: '',
                             return 1;
                         if (a.location > b.location) {
                             return -1;
-                            return 0;
+                            // return 0;
                         }
                     }
                     return productsArray.sort(compare);
@@ -463,7 +436,7 @@ sortMethod: '',
                             return 1;
                         if (a.location < b.location) {
                             return -1;
-                            return 0;
+                            // return 0;
                         }
                     }
                     return productsArray.sort(compare);
@@ -475,7 +448,7 @@ sortMethod: '',
                             return 1;
                         if (a.availableInventory < b.availableInventory) {
                             return -1;
-                            return 0;
+                            // return 0;
                         }
                     }
                     return productsArray.sort(compare);
@@ -488,25 +461,25 @@ sortMethod: '',
                             return 1;
                         if (a.availableInventory > b.availableInventory) {
                             return -1;
-                            return 0;
+                            // return 0;
                         }
                     }
                     return productsArray.sort(compare);
                 },
-                //searching for a lesson and making all searches valid by converting to lowercase
-                searchFiltering() {
-                    return this.items.filter(item => {
-                        return (item.subject.toLowerCase().includes(this.checkLesson.toLowerCase()) ||
-                            item.location.toLowerCase().includes(this.checkLesson.toLowerCase()) ||
-                            // For the data saved as integers, they get cast to String which lets it match any typed numbers 
-                            item.price.toString().includes(this.checkLesson.toLowerCase()) ||
-                            item.id.toString().includes(this.checkLesson.toLowerCase()) ||
-                            item.availableInventory.toString().includes(this.checkLesson.toLowerCase()))
-                    })
-                },
-               
 
-            }
-       
+  searchFiltering() {
+  const searchValue = this.checkLesson.toLowerCase();
+  const filteredItems = this.items.filter(item =>
+    Object.values(item).some(value =>
+      typeof value === 'string' && value.toLowerCase().includes(searchValue) ||
+      typeof value === 'number' && value.toString().includes(searchValue)
+    )
+  );
+  console.log(filteredItems);
+  return filteredItems;
+}
+
+    }
+
 }
 </script>
