@@ -41,9 +41,9 @@
                 </button>
           </nav>
         </div> 
-        <!-- div to show lessons display page -->
+        <!-- div to show lessons display pages -->
         <div v-if="showItem">
-          <!-- for loop to display all lessons -->
+          <!-- for loop to display all the lessons -->
           <lessonsList :items="items" @addItem="addToCart"></lessonsList>
        </div>
         <!-- div to show cart page -->
