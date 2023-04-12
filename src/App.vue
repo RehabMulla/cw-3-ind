@@ -41,24 +41,23 @@
                 </button>
           </nav>
         </div> 
-
+        <!-- div to show lessons display page -->
         <div v-if="showItem">
           <!-- for loop to display all lessons -->
           <lessonsList :items="items" @addItem="addToCart"></lessonsList>
        </div>
-
+        <!-- div to show cart page -->
         <div v-else>
           <!-- lessons added in cart -->
           <checkoutItems :cart="cart" @removeItem="removeItem"></checkoutItems>
         </div>
-
-        <!-- the rest of your app code here -->
       </div>
     
   </div>
 </template>
 
 <script>
+//importing child components from lessonlist file and checkoutitems file
 import lessonsList from './components/LessonsList.vue'
 import checkoutItems from './components/CheckoutItems.vue'
 
@@ -76,6 +75,7 @@ export default {
     }
   },
   created: function(){
+    //to fetch item list from mongodb
      fetch('http://localhost:3000/collection/items').then(response => {
         response.json().then(json => {
             this.items = json;

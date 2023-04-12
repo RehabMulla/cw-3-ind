@@ -1,7 +1,8 @@
 <template>
   <div>
     <link rel="stylesheet" href="style.css">
-     <!-- cart button  -->                    
+     <!-- cart button  -->      
+     <br>              
     <h2>Lessons Being Purchased:</h2>
     <div v-for="item in cart" :key="item.id">
       <div id="lessonbox">
@@ -56,6 +57,7 @@
         var numCriteriaRegExp = new RegExp("^971[0-9]{9,9}$");
 export default {
   name: "CheckoutItems",
+  //prop for parent comp to send data
   props: ['cart'],
    data() {
     return {
@@ -70,6 +72,7 @@ export default {
       alert('Order submitted!');
       location.reload();
     },
+//using emit to remove item from cart array
     removeItem(item) {
             this.$emit('removeItem', item)
         },

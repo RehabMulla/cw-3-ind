@@ -8,7 +8,7 @@
                     </p>
                 </div>
                 <br>
-         <!-- style sheel CSS link -->
+         <!-- style sheet CSS link -->
       <link rel="stylesheet" href="style.css">
          <!-- creating radio buttons to sort lessons -->
             <div class="sortLessons" v-if="showItem">
@@ -336,6 +336,7 @@
 <script>
 export default {
     name: "LessonsList",
+    //prop for parent comp to send data
     props:['items'],
     data () {
       return {
@@ -345,6 +346,7 @@ export default {
       }
     },
     methods: {
+        //using emit to add item in cart array
         addToCart(item) {
             console.log("added item", item.id)
             this.$emit('addItem', item)
